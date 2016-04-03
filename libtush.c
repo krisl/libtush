@@ -1,5 +1,4 @@
 #include "libtush.h"
-#include <stdio.h>
 
 void tush_cmd_help()
 {
@@ -19,4 +18,15 @@ void tush_init(struct tush_t * tush)
     printf("command %s\r\n", cmd->cmd);
     cmd++;
   }
+}
+
+void tush_go(struct tush_t * tush, tush_iofn read, tush_iofn write)
+{
+  char c;
+  while(2) {
+    if (write("woot\r\n", 6) == -1)
+      break;
+    printf("read %i %c\r\n", read(&c, 1), c);
+  }
+
 }
