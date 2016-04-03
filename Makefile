@@ -1,2 +1,2 @@
-demo: demo.c
-	cc -o demo demo.c
+demo: demo.c libtush.c libtush.h
+	cc -o demo demo.c libtush.c
